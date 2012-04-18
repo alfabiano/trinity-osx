@@ -159,8 +159,6 @@ static void handle_children()
 
 		} else if (WIFSTOPPED(childstatus)) {
 			debugf("[%d] Child was stopped by %d.", getpid(), WSTOPSIG(childstatus));
-			debugf("[%d] Sending PTRACE_CONT (and then KILL)\n", getpid());
-			ptrace(PTRACE_CONT, childpid, NULL, NULL);
 			kill(childpid, SIGKILL);
 			reap_child(childpid);
 		} else if (WIFCONTINUED(childstatus)) {
