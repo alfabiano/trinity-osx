@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <setjmp.h>
-#include <asm/unistd.h>
+#include <unistd.h>
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <sys/types.h>
