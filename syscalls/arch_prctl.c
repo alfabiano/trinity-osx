@@ -7,8 +7,7 @@
 
 #include "trinity.h"
 #include "sanitise.h"
-#include <asm/prctl.h>
-#include <sys/prctl.h>
+#include <prctl.h>
 
 struct syscall syscall_arch_prctl = {
 	.name = "arch_prctl",
@@ -17,7 +16,8 @@ struct syscall syscall_arch_prctl = {
 	.arg1type = ARG_LIST,
 	.arg1list = {
 		.num = 4,
-		.values = { ARCH_SET_FS, ARCH_GET_FS, ARCH_SET_GS, ARCH_GET_GS },
+		.values = { },
+		// .values = { ARCH_SET_FS, ARCH_GET_FS, ARCH_SET_GS, ARCH_GET_GS },
 	},
 	.arg2name = "addr",
 	.arg2type = ARG_ADDRESS,
