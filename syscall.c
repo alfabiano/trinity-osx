@@ -7,6 +7,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sched.h>
+#include <signal.h>
 #include <sys/types.h>
 #include <sys/ptrace.h>
 #include <sys/wait.h>
@@ -182,7 +183,7 @@ args_done:
 
 int child_process(void)
 {
-	cpu_set_t set;
+	// cpu_set_t set;
 	pid_t pid = getpid();
 	int ret = 0;
 	unsigned int syscallnr;
@@ -195,13 +196,13 @@ int child_process(void)
 			break;
 	}
 
-	if (sched_getaffinity(pid, sizeof(set), &set) == 0) {
+/*	if (sched_getaffinity(pid, sizeof(set), &set) == 0) {
 		CPU_ZERO(&set);
 		CPU_SET(cpu, &set);
 		sched_setaffinity(getpid(), sizeof(set), &set);
 		output("bound child %d to cpu %d\n", pid, cpu);
 	}
-
+*/
 	while (left_to_do > 0) {
 
 		syscallnr = rand() % max_nr_syscalls;
