@@ -21,7 +21,7 @@ void sanitise_socket(
 	*family = rand() % PF_MAX;
 	*type = rand() % TYPE_MAX;
 	*protocol = rand() % PROTO_MAX;
-
+/*
 	switch (*family) {
 
 	case AF_X25:
@@ -38,6 +38,8 @@ void sanitise_socket(
 		*type |= SOCK_CLOEXEC;
 	if ((rand() % 100) < 25)
 		*type |= SOCK_NONBLOCK;
+*/
+	*type = SOCK_STREAM;
 }
 
 struct syscall syscall_socket = {
