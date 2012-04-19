@@ -3,7 +3,7 @@
 	 const void __user *,value, size_t, size, int, flags)
  */
 
-#include <linux/xattr.h>
+#include <sys/xattr.h>
 
 #include "trinity.h"
 #include "sanitise.h"
