@@ -4,7 +4,8 @@
 #include "trinity.h"
 #include "sanitise.h"
 #include <stdlib.h>
-#include <linux/ptrace.h>
+#include <sys/ptrace.h>
+#include <sys/types.h>
 
 static void sanitise_ptrace(
 	__unused__ unsigned long *a1,
@@ -38,12 +39,9 @@ struct syscall syscall_ptrace = {
 	.arg1type = ARG_LIST,
 	.arg1list = {
 		.num = 23,
-		.values = { PTRACE_TRACEME, PTRACE_PEEKTEXT, PTRACE_PEEKDATA, PTRACE_PEEKUSR,
-				PTRACE_POKETEXT, PTRACE_POKEDATA, PTRACE_POKEUSR, PTRACE_GETREGS,
-				PTRACE_GETFPREGS, PTRACE_GETSIGINFO, PTRACE_SETREGS, PTRACE_SETFPREGS,
-				PTRACE_SETSIGINFO, PTRACE_SETOPTIONS, PTRACE_GETEVENTMSG, PTRACE_CONT,
-				PTRACE_SYSCALL, PTRACE_SINGLESTEP, PTRACE_SYSEMU, PTRACE_SYSEMU_SINGLESTEP,
-				PTRACE_KILL, PTRACE_ATTACH, PTRACE_DETACH },
+		.values = { PT_TRACE_ME, PT_DENY_ATTACH, PT_CONTINUE, PT_STEP, 
+			    PT_KILL, PT_ATTACH, PT_DETACH }
+		
 	},
 	.arg2name = "pid",
 	.arg3name = "addr",
