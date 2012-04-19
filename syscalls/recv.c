@@ -22,10 +22,10 @@ struct syscall syscall_recv = {
 	.arg4type = ARG_LIST,
 	.arg4list = {
 		.num = 13,
-		.values = { MSG_DONTWAIT, MSG_ERRQUEUE, MSG_ERRQUEUE,
-			    MSG_ERRQUEUE, MSG_OOB, MSG_PEEK, MSG_TRUNC,
+		.values = { MSG_DONTWAIT,
+			    MSG_OOB, MSG_PEEK, MSG_TRUNC,
 			    MSG_WAITALL, MSG_EOR, MSG_TRUNC, MSG_CTRUNC,
-			    MSG_OOB, MSG_ERRQUEUE },
+			    MSG_OOB },
 	},
 
 };
