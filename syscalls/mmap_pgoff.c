@@ -3,7 +3,7 @@
                  unsigned long, prot, unsigned long, flags,
                  unsigned long, fd, unsigned long, pgoff)
  */
-#include <asm/mman.h>
+#include <sys/mman.h>
 
 #ifndef MAP_UNINITIALIZED
 #define MAP_UNINITIALIZED 0x4000000
@@ -41,10 +41,9 @@ struct syscall syscall_mmap_pgoff = {
 	.arg4type = ARG_LIST,
 	.arg4list = {
 		.num = 14,
-		.values = { MAP_SHARED, MAP_PRIVATE, MAP_FIXED, MAP_ANONYMOUS,
-			    MAP_GROWSDOWN, MAP_DENYWRITE, MAP_EXECUTABLE, MAP_LOCKED,
-			    MAP_NORESERVE, MAP_POPULATE, MAP_NONBLOCK, MAP_STACK,
-			    MAP_HUGETLB, MAP_UNINITIALIZED },
+                .values = { MAP_SHARED, MAP_PRIVATE, MAP_FIXED, MAP_NORESERVE,
+                            MAP_STACK, MAP_HUGETLB, MAP_UNINITIALIZED,
+                            MAP_ANON, MAP_FILE, MAP_HASSEMAPHORE, MAP_NOCACHE },
 	},
 	.arg5name = "fd",
 	.arg5type = ARG_FD,
