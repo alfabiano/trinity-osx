@@ -21,7 +21,7 @@ struct syscall syscall_send = {
         .arg4type = ARG_LIST,
         .arg4list = {
                 .num = 7,
-                .values = { MSG_CONFIRM, MSG_DONTROUTE, MSG_DONTWAIT,
-			    MSG_EOR, MSG_MORE, MSG_NOSIGNAL, MSG_OOB },
+                .values = { MSG_DONTROUTE, MSG_DONTWAIT,
+			    MSG_EOR, MSG_OOB },
 	},
 };
