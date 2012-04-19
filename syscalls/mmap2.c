@@ -1,7 +1,7 @@
 /*
  * sys_mmap2 (unsigned long addr, unsigned long len, int prot, int flags, int fd, long pgoff)
  */
-#include <linux/mman.h>
+#include <sys/mman.h>
 
 #include "trinity.h"
 #include "sanitise.h"
@@ -22,16 +22,15 @@ struct syscall syscall_mmap2 = {
 	.arg3type = ARG_LIST,
 	.arg3list = {
 		.num = 4,
-		.values = { PROT_READ, PROT_WRITE, PROT_EXEC, PROT_SEM },
+		.values = { PROT_READ, PROT_WRITE, PROT_EXEC },
 	},
 	.arg4name = "flags",
 	.arg4type = ARG_LIST,
 	.arg4list = {
 		.num = 14,
-		.values = { MAP_SHARED, MAP_PRIVATE, MAP_FIXED, MAP_ANONYMOUS,
-			    MAP_GROWSDOWN, MAP_DENYWRITE, MAP_EXECUTABLE, MAP_LOCKED,
-			    MAP_NORESERVE, MAP_POPULATE, MAP_NONBLOCK, MAP_STACK,
-			    MAP_HUGETLB, MAP_UNINITIALIZED },
+                .values = { MAP_SHARED, MAP_PRIVATE, MAP_FIXED, MAP_NORESERVE,
+                            MAP_UNINITIALIZED,
+                            MAP_ANON, MAP_FILE, MAP_HASSEMAPHORE, MAP_NOCACHE },
 	},
 	.arg5name = "fd",
 	.arg5type = ARG_FD,
