@@ -1,7 +1,7 @@
 /*
  * sys_mprotect(unsigned long start, size_t len, unsigned long prot)
  */
-#include <asm/mman.h>
+#include <sys/mman.h>
 
 #include "trinity.h"
 #include "sanitise.h"
@@ -44,7 +44,7 @@ struct syscall syscall_mprotect = {
 	.arg3type = ARG_LIST,
 	.arg3list = {
 		.num = 6,
-		.values = { PROT_READ, PROT_WRITE, PROT_EXEC, PROT_SEM, PROT_GROWSDOWN, PROT_GROWSUP },
+		.values = { PROT_READ, PROT_WRITE, PROT_EXEC },
 	},
 	.sanitise = sanitise_mprotect,
 	.group = GROUP_VM,
