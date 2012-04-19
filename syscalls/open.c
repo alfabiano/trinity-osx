@@ -21,13 +21,10 @@ struct syscall syscall_open = {
 	.arg2type = ARG_LIST,
 	.arg2list = {
 		.num = 19,
-		.values = { O_RDONLY, O_WRONLY, O_RDWR,
-				O_CREAT, O_EXCL, O_NOCTTY,
-				O_TRUNC, O_APPEND, O_NONBLOCK,
-				O_SYNC, O_ASYNC,
-				O_DIRECTORY, O_NOFOLLOW, O_CLOEXEC,
-				O_DIRECT, O_NOATIME, O_PATH,
-				O_DSYNC, O_LARGEFILE },
+		.values = { O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_EXCL, O_NOCTTY,
+			    O_TRUNC, O_APPEND, O_NONBLOCK, O_SYNC, O_ASYNC,
+			    O_DIRECTORY, O_NOFOLLOW, O_PATH, O_DSYNC,
+			    O_SHLOCK, O_EXLOCK, O_SYMLINK, O_EVTONLY },
 	},
 	.arg3name = "mode",
 };
