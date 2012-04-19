@@ -2,8 +2,8 @@
  * SYSCALL_DEFINE3(ioctl, unsigned int, fd, unsigned int, cmd, unsigned long, arg)
  */
 #include <stdlib.h>
-#include <linux/ioctl.h>
-#include <linux/major.h>
+#include <sys/ioctl.h>
+//#include <sys/major.h>
 
 #include "trinity.h"
 #include "sanitise.h"
