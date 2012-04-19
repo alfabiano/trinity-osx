@@ -49,10 +49,9 @@ struct syscall syscall_sendmsg = {
 	.arg3list = {
 		.num = 19,
 		.values = { MSG_OOB, MSG_PEEK, MSG_DONTROUTE, MSG_CTRUNC,
-				MSG_TRUNC, MSG_DONTWAIT, MSG_EOR,
-				MSG_WAITALL, MSG_FIN, MSG_SYN, MSG_CONFIRM,
-				MSG_RST, MSG_ERRQUEUE, MSG_NOSIGNAL, MSG_MORE,
-				MSG_WAITFORONE, MSG_CMSG_CLOEXEC, MSG_CMSG_COMPAT },
+			    MSG_TRUNC, MSG_DONTWAIT, MSG_EOR,
+			    MSG_WAITALL, MSG_CMSG_COMPAT 
+			},
 	},
 	.sanitise = sanitise_sendmsg,
 };
